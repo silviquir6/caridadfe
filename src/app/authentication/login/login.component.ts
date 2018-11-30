@@ -17,7 +17,7 @@ export class LoginComponent {
 
   email: string;
   recuerdameVar: boolean= false;
-  auth2:any;
+  auth2: any;
 
   forma: FormGroup;
 
@@ -71,17 +71,26 @@ this.auth2.attachClickHandler(element, {}, (googleUser) =>{
   console.log('attachClickHandler');
 
 let token = googleUser.getAuthResponse().id_token;
-console.log('token',token);
+console.log('token', token);
 
-this.usuarioService.loginGoogle(token)
+this.loginGoogle(token);
+
+
+
+} );
+
+}
+
+loginGoogle(token: any){
+
+  this.usuarioService.loginGoogle(token)
             .subscribe(correcto =>{
               console.log('login google correcto');
              window.location.href = '/dashboard/dashboard1';
-             /* this.router.navigate(['/dashboard']);
- */
+           
+//this.router.navigate(['/dashboard/dashboard1']);
+ 
           });
-} );
-
 }
 
 
@@ -105,7 +114,7 @@ ingresar(){
   .subscribe(correcto => {
 
     window.location.href = '/dashboard/dashboard1';
-   
+    //this.router.navigate(['/dashboard/dashboard1']);
 
 
   });

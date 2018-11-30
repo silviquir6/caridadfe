@@ -4,11 +4,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { LoginGuardGuard } from './services/guards/login-guard.guard';
 
 export const Approutes: Routes = [
   {
     path: '',
     component: FullComponent,
+    canActivate: [LoginGuardGuard],
     children: [
       { path: '', redirectTo: '/authentication/login', pathMatch: 'full' },
       {

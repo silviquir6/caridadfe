@@ -58,7 +58,8 @@ export class UsuarioService {
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
 
-    this.router.navigate(['/landingpage/landingpage']);
+    window.location.href = '/authentication/login';
+    //this.router.navigate(['/landingpage/landingpage']);
 
   }
 
