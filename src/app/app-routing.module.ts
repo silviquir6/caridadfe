@@ -4,7 +4,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+
+//guards
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
+import { AdminGuard } from './services/guards/admin.guard';
 
 export const Approutes: Routes = [
   {
@@ -38,7 +41,7 @@ export const Approutes: Routes = [
         loadChildren:
           './extra-component/extra-component.module#ExtraComponentModule'
       },
-      { path: 'apps', loadChildren: './apps/apps.module#AppsModule' },
+      { path: 'apps', canActivate: [ AdminGuard], loadChildren: './apps/apps.module#AppsModule' },
       {
         path: 'sample-pages',
         loadChildren: './sample-pages/sample-pages.module#SamplePagesModule'
