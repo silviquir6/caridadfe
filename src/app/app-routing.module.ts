@@ -45,6 +45,10 @@ export const Approutes: Routes = [
       {
         path: 'sample-pages',
         loadChildren: './sample-pages/sample-pages.module#SamplePagesModule'
+      },
+      {
+        path: 'pagos',
+        loadChildren: './pagos/pagos.module#PagosModule'
       }
     ]
   },

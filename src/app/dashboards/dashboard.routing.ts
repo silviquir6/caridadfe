@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 import { Dashboard1Component } from './dashboard1/dashboard1.component';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { Dashboard3Component } from './dashboard3/dashboard3.component';
+import { EsalDashboardComponent } from './esal-dashboard/esal-dashboard.component';
+import { EsalDetailsDashboardComponent } from './esal-details-dashboard/esal-details-dashboard.component';
 
 export const DashboardRoutes: Routes = [
   {
@@ -38,6 +40,28 @@ export const DashboardRoutes: Routes = [
           urls: [
             { title: 'Dashboard', url: '/dashboard' },
             { title: 'Analytical Dashboard' }
+          ]
+        }
+      },
+      {
+        path: 'esalDashboard',
+        component: EsalDashboardComponent,
+        data: {
+          title: 'ESAL Dashboard',
+          urls: [
+            { title: 'Dashboard', url: '/dashboard' },
+            { title: 'ESAL Dashboard' }
+          ]
+        }
+      },
+      {
+        path: 'esalDetailsDashboard',
+        component: EsalDetailsDashboardComponent,
+        data: {
+          title: 'ESAL Details Dashboard',
+          urls: [
+            { title: 'Dashboard', url: '/dashboard' },
+            { title: 'ESAL Details Dashboard' }
           ]
         }
       }

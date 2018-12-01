@@ -55,7 +55,7 @@ googleInit(){
 console.log('googleInit');
   gapi.load('auth2', ()=>{
 this.auth2= gapi.auth2.init({
-  client_id : '1088054650025-rj7d9ee44gme47c22b2nk4tqoggqn535.apps.googleusercontent.com',
+  client_id : '172870227314-5gp8h4508krj3vcagps4u4qmpu1tt8qq.apps.googleusercontent.com',
   cookiepolicy: 'single host origin',
   scope: 'profile email'
 });

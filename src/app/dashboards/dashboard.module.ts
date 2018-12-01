@@ -6,6 +6,9 @@ import { ChartsModule } from 'ng2-charts';
 import { Dashboard1Component } from './dashboard1/dashboard1.component';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { Dashboard3Component } from './dashboard3/dashboard3.component';
+import { EsalDashboardComponent } from './esal-dashboard/esal-dashboard.component';
+
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardRoutes } from './dashboard.routing';
 import { ChartistModule } from 'ng-chartist';
@@ -26,6 +29,11 @@ import { TotalEarningComponent } from './dashboard-components/total-earnings/te.
 import { FeedsComponent } from './dashboard-components/feeds/feeds.component';
 import { EarningComponent } from './dashboard-components/earning-report/earning-report.component';
 import { ActivityComponent } from './dashboard-components/activity-timeline/activity.component';
+import { WelcomeComponent } from './dashboard-components/welcome/welcome.component';
+import { EsalListComponent } from './dashboard-components/esal-list/esal-list.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { EsalDetailsDashboardComponent } from './esal-details-dashboard/esal-details-dashboard.component';
+
 
 @NgModule({
   imports: [
@@ -35,7 +43,7 @@ import { ActivityComponent } from './dashboard-components/activity-timeline/acti
     ChartsModule,
     ChartistModule,
     Ng2SmartTableModule,
-    RouterModule.forChild(DashboardRoutes)
+    RouterModule.forChild(DashboardRoutes), PipesModule
   ],
   declarations: [
     Dashboard1Component,
@@ -55,7 +63,11 @@ import { ActivityComponent } from './dashboard-components/activity-timeline/acti
     TotalEarningComponent,
     FeedsComponent,
     EarningComponent,
-    ActivityComponent
+    ActivityComponent,
+    EsalDashboardComponent,
+    WelcomeComponent,
+    EsalListComponent,
+    EsalDetailsDashboardComponent
   ]
 })
 export class DashboardModule {}

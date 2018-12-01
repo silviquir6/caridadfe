@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-lg-3">
+        <div class="card bg-info">
+            <div class="card-body">
+                <div class="d-flex no-block">
+
+                    <div class="align-self-center">
+                        <h6 class="text-white m-t-10 m-b-0">Total ESALS</h6>
+                        <h2 class="m-t-0 text-white"> {{totalRegistros}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row animated fadeIn col-12 ">
+        <input #input (keyup.enter)="buscarEsalsPorTermino(input.value)" type="text" placeholder="Buscar y enter" class="form-control">
+        <a href=""></a>
+    </div>
+
+
+    <div class="row animated fadeIn" *ngIf="cargando">
+
+        <div class="col-sm-12">
+            <div class="alert alert-warning text-center">
+                <strong>Cargando</strong>
+                <br>
+                <i class="fa fa-refresh fa-spin fa-2x"></i>
+                <br>
+                <span>Espere por favor</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-3">
+        <div class="card border border-warning" *ngFor=" let esal of esals ">
+            <div class="row ">
+                <div class="col-md-4 ">
+                    <img [src]="esal.img | imagen: 'esal' " class="w-100 pointer " [routerLink]="[ '/component/esalDetails/', esal._id] " routerLinkActive="router-link-active ">
+                </div>
+                <div class="col-md-8 px-3 ">
+                    <div class="card-block px-3 ">
+                        <h4 class="card-title ">{{esal.nombre}}</h4>
+                        <p class="card-text ">{{esal.direccion}} </p>
+                        <p class="card-text ">{{esal.descripcion}}</p>
+                        <a [routerLink]="[ '/component/esalDetails/', esal._id] " routerLinkActive="router-link-active" class="btn btn-primary ">Leer más</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><button (click)="cambiarDesde(-5)" class="page-link" href="#">Anterior </button></li>
+
+                <li class="page-item"><button (click)="cambiarDesde(5)" class="page-link" href="#">Siguiente</button></li>
+            </ul>
+        </nav>
+    </div>
