@@ -1,0 +1,310 @@
+<!-- payu -->
+<script type="text/javascript" src="https://maf.pagosonline.net/ws/fp/tags.js?id=d66f949f19b33e88c202b579cfc549b380200"></script>
+<noscript><iframe style="width: 100px; height: 100px; border: 0; position: absolute; top: -5000px;" src="https://maf.pagosonline.net/ws/fp/tags.js?id=d66f949f19b33e88c202b579cfc549b380200"></iframe>
+ </noscript>
+
+<div class="row">
+
+    <div class="col-12">
+
+        <div class="card-columns">
+
+
+            <div class="card" style="max-width: 18rem;">
+
+                <div class="card-body">
+                    <a href="http://www.payulatam.com/logos/pol.php?l=123&c=5bf83a1fa5e00" target="_blank"><img src="http://www.payulatam.com/logos/logo.php?l=123&c=5bf83a1fa5e00" alt="PayU Latam" /></a>
+                </div>
+
+
+            </div>
+
+
+            <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">Donando a:</h4>
+                </div>
+                <img class="card-img-top" [src]="esal.img | imagen:'esal' " class="card-img-top pointer" [routerLink]="['/dashboard/esalDetailsDashboard/', esal._id]" routerLinkActive="router-link-active" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-capitalize">{{esal.nombre}}</h5>
+                    <p class="card-text">{{esal.direccion}}</p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="card ">
+            <div class="card-body ">
+
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{usuario.nombre}}!</strong> Gracias por tu donación.
+
+                </div>
+
+                <form [formGroup]="donacionForm" (ngSubmit)="GuardarDonacion()" class="needs-validation" id="donacionForm">
+                    <h3 class="box-title m-b-20 ">1. Elije el valor a donar: </h3>
+                    <div class="form-row ">
+                        <div class="col-md-4 mb-3 ">
+                            <select formControlName="valoraDonar" _ngcontent-c3="" class="custom-select col-12" id="inlineFormCustomSelect">
+                                <option [ngValue]="null">Selecciona un valor...</option>
+                                <option _ngcontent-c3="">10.000</option>
+                                <option _ngcontent-c3="">20.000</option>
+                                <option _ngcontent-c3="">30.000</option>
+                                <option _ngcontent-c3="">40.000</option>
+                                <option _ngcontent-c3="">50.000</option>
+                                <option _ngcontent-c3="">60.000</option>
+                                <option _ngcontent-c3="">70.000</option>
+                                <option _ngcontent-c3="">80.000</option>
+                                <option _ngcontent-c3="">90.000</option>
+                                <option _ngcontent-c3="">100.000</option>
+                                <option _ngcontent-c3="">200.000</option>
+                                <option _ngcontent-c3="">300.000</option>
+                            </select>
+
+                            <div *ngIf="donacionForm.controls['valoraDonar'].errors?.required" class="form-control-feedback alert alert-info">
+                                El valor a donar es requerido.
+                            </div>
+                        </div>
+                        Pesos Colombianos
+
+                    </div>
+                    <div class="form-row ">
+
+                        <div class="col-md-4 mb-3 ">
+                            <div class="custom-control custom-checkbox ">
+                                <input formControlName="otroCheck" name="otroCheck" #otroCheck (click)="habilitarOtroValor()" type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1"></label>
+
+                                <label class="form-check-label" for="defaultCheck1"> Otro Valor  </label>
+                                <input formControlName="otroValor" name="otroValor" class="form-control " type="number" required="" placeholder="Otro Valor">
+
+                                <div *ngIf="donacionForm.controls['otroValor'].errors?.required" class="form-control-feedback alert alert-info">
+                                    El valor a donar es requerido.
+                                </div>
+                                <div *ngIf="donacionForm.controls['otroValor'].errors?.valormin" class="form-control-feedback alert alert-info">
+                                    Ingrese valor mayor a 8.647 COP.
+                                </div>
+                                <div *ngIf="donacionForm.controls['otroValor'].errors?.valormax" class="form-control-feedback alert alert-info">
+                                    Ingrese valor menor a 14.412.000 COP.
+                                </div>
+
+                            </div>
+                        </div>
+                        Pesos Colombianos
+
+                    </div>
+
+                    <button class="btn btn-primary " [disabled]="!donacionForm.valid" type="submit ">Guardar donación</button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="card ">
+            <div class="card-body ">
+                <img src="../../../../assets/images/payu.png" alt="">
+                <form ngNativeValidate [formGroup]="tarjetaForm" (ngSubmit)="GuardarTarjeta()" class=" form-horizontal form-material col-6 " id="pagadorForm ">
+                    <h3 class="box-title m-b-20 ">2. Ingresa datos de la tarjeta: </h3>
+
+
+                    <div class="form-group ">
+                        <div class="form-row ">
+                            <div class="col-md-8 mb-12 ">
+                                <label for="tipoTarjeta ">Selecciona un tipo de tarjeta:</label>
+                                <select (click)="habilitarValidacionesTarjeta()" formControlName="tipoTarjeta" name="tipoTarjeta" class="custom-select" size="3">
+                            <option value="VISA">Visa (Credito) </option>
+                            <option value="VISA_DEBIT">Visa (Debito) </option>
+                            <option value="MASTERCARD">Mastercard</option>
+                            <option value="AMEX">American Express</option>
+                            <option value="DINERS">Diners Club International</option>
+                            <option value="CODENSA">Credito facil codensa</option>
+                          </select>
+                            </div>
+                            <div *ngIf="tarjetaForm.controls['tipoTarjeta'].errors?.required" class="form-control-feedback alert alert-info ">
+                                El tipo de tarjeta es necesario.
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form-row ">
+                            <div class="col-md-8 mb-12 ">
+                                <label for="numeroTarjeta ">Número de tarjeta:</label>
+                                <input formControlName="numeroTarjeta" name="numeroTarjeta" class="form-control" type="number" placeholder="0000000000000"> </div>
+                            <div *ngIf="tarjetaForm.controls['numeroTarjeta'].errors?.required" class="form-control-feedback alert alert-info">
+                                El número de tarjeta es necesario
+                            </div>
+                            <div *ngIf="tarjetaForm.controls['numeroTarjeta'].errors?.pattern" class="form-control-feedback alert alert-info">
+                                No cumple el patrón de la tarjeta
+                            </div>
+                            <div *ngIf="tarjetaForm.controls['numeroTarjeta'].errors?.luhnError" class="form-control-feedback alert alert-info">
+                                El número de la tarjeta no es válido.
+                            </div>
+                            <div *ngIf="tarjetaForm.controls['numeroTarjeta'].errors?.min" class="form-control-feedback alert alert-info">
+                                No cumple con la cantidad de dígitos minimos válidos.
+                            </div>
+                            <div *ngIf="tarjetaForm.controls['numeroTarjeta'].errors?.max" class="form-control-feedback alert alert-info">
+                                No cumple con la cantidad de dígitos máximos válidos.
+                            </div>
+
+
+                        </div>
+                        <div class="form-row " (click)="habilitarValidacionesNumeroDocumento()">
+                            <div class="col-md-8 mb-12 ">
+                                <label for="tipoTarjeta ">Tipo de Documento:</label>
+                                <select formControlName="tipoDocumento" name="tipoDocumento" [disabled]="" class="form-control " id="tipoDocumento ">
+                                        <option [ngValue]="null">Selecciona un tipo de documento...</option>
+                                    <option  selected="" value="CC">Cédula de ciudadanía.</option>
+                                    <option value="CE">Cédula de extranjería.</option>
+                                    <option value="NIT">Número de Identificación Tributario.</option>
+                                    <option value="TI">Tarjeta de Identidad.</option>
+                                    <option value="PP">Pasaporte.</option>
+                                    <option value="IDC">Identificador único de cliente, para el caso de ID’s únicos de clientes/usuarios de servicios públicos.</option>
+                                    <option value="CEL">En caso de identificarse a través de la línea del móvil.</option>
+                                    <option value="RC">Registro civil de nacimiento.</option>
+                                    <option value="DE">Documento de identificación extranjero.</option>
+                                  
+                                </select>
+                                <div *ngIf="tarjetaForm.controls['tipoDocumento'].errors?.required" class="form-control-feedback  alert alert-info">
+                                    El tipo de documento es necesario
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="form-row ">
+                            <div class="col-md-8 mb-12">
+                                <label for="numeroDocumento ">Número de documento:</label>
+                                <input formControlName="numeroDocumento" name="numeroDocumento" class="form-control" type="text" required="" placeholder="Numero de Documento ">
+                                <div *ngIf="tarjetaForm.controls['numeroDocumento'].errors?.required" class="form-control-feedback alert alert-info">
+                                    El número de documento es necesario
+                                </div>
+                                <div *ngIf="tarjetaForm.controls['numeroDocumento'].errors?.pattern" class="form-control-feedback alert alert-info">
+                                    Ingrese un número de documento válido.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row ">
+                            <div class="col-md-8 mb-12">
+                                <label for="mesVencimiento ">Mes de Vencimiento:</label>
+                                <select formControlName="mesVencimiento" _ngcontent-c3="" class="custom-select col-12" id="inlineFormCustomSelect">
+                                    <option [ngValue]="null">Selecciona un mes...</option>
+                                    <option _ngcontent-c3="" value="01">01</option>
+                                    <option _ngcontent-c3="" value="02">02</option>
+                                    <option _ngcontent-c3="" value="03">03</option>
+                                    <option _ngcontent-c3="" value="04">04</option>
+                                    <option _ngcontent-c3="" value="05">05</option>
+                                    <option _ngcontent-c3="" value="06">06</option>
+                                    <option _ngcontent-c3="" value="07">07</option>
+                                    <option _ngcontent-c3="" value="08">08</option>
+                                    <option _ngcontent-c3="" value="09">09</option>
+                                    <option _ngcontent-c3="" value="10">10</option>
+                                    <option _ngcontent-c3="" value="11">11</option>
+                                    <option _ngcontent-c3="" value="12">12</option>
+                                </select>
+
+                                <div *ngIf="tarjetaForm.controls['mesVencimiento'].errors?.required" class="form-control-feedback alert alert-info">
+                                    El mes es necesario.
+                                </div>
+                                <div *ngIf="tarjetaForm.controls['mesVencimiento'].errors?.mesError" class="form-control-feedback alert alert-info">
+                                    Ingrese un mes válido.
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-row ">
+                            <div class="col-md-8 mb-12 ">
+                                <label for="anioVencimiento ">Año de Vencimiento:</label>
+                                <input (change)="habilitarValidacionesMes()" formControlName="anioVencimiento" name="anioVencimiento" class="form-control" type="number" required="" placeholder="AAAA">
+                                <div *ngIf="tarjetaForm.controls['anioVencimiento'].errors?.maxlength" class="form-control-feedback alert alert-info">
+                                    Ingrese 4 dígitos.
+                                </div>
+                                <div *ngIf="tarjetaForm.controls['anioVencimiento'].errors?.pattern" class="form-control-feedback alert alert-info">
+                                    Ingrese datos numéricos.
+                                </div>
+                                <div *ngIf="tarjetaForm.controls['anioVencimiento'].errors?.anioError" class="form-control-feedback alert alert-info">
+                                    Ingrese un año válido.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-row ">
+                            <div class="col-md-8 mb-12">
+                                <label for="codigoSeguridad">Código de seguridad(CVV, CVC):</label>
+                                <input formControlName="codigoSeguridad" name="codigoSeguridad" class="form-control security-code" type="password" required="" [placeholder]="placeholderCodigoSeguridadValue">
+                                <div *ngIf="tarjetaForm.controls['codigoSeguridad'].errors?.maxlength" class="form-control-feedback alert alert-info">
+                                    Ingrese cantidad de dígitos correcta para el CVV.
+                                </div>
+                                <div *ngIf="tarjetaForm.controls['codigoSeguridad'].errors?.pattern" class="form-control-feedback alert alert-info">
+                                    Ingrese datos numéricos
+                                </div>
+                                <div *ngIf="tarjetaForm.controls['codigoSeguridad'].errors?.required" class="form-control-feedback alert alert-info">
+                                    El código de seguridad es necesario.
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row ">
+                            <div class="col-md-8 mb-12">
+                                <label for="nombreTarjeta ">Nombre en la tarjeta:</label>
+                                <input formControlName="nombreTarjeta" name="nombreTarjeta" class="form-control" type="text" required="" placeholder="Nombre en la tarjeta ">
+                                <div *ngIf="tarjetaForm.controls['nombreTarjeta'].errors?.maxlength" class="form-control-feedback alert alert-info">
+                                    Ingrese el nombre que aparece en la tarjeta.
+                                </div>
+                                <div *ngIf="tarjetaForm.controls['nombreTarjeta'].errors?.pattern" class="form-control-feedback alert alert-info">
+                                    Ingrese letras del alfabeto sin acentos.
+                                </div>
+                                <div *ngIf="tarjetaForm.controls['nombreTarjeta'].errors?.required" class="form-control-feedback alert alert-info">
+                                    El nombre es necesario.
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-row ">
+                            <div class="col-md-8 mb-12">
+                                <label for="cuotas">Cuota:</label>
+                                <select class="custom-select" size="1">
+                          <option >1</option>
+                    </select>
+                                <div class="form-group text-center m-t-20 ">
+                                    <div class="col-md-8 mb-12 ">
+                                        <button class="btn btn-primary" [disabled]="!tarjetaForm.valid" type="submit ">Guardar datos de la tarjeta</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+
+                <div class="form-group text-center m-t-20 ">
+                    <div class="col-md-8 mb-12 ">
+                        <button (click)="authorizacionYcaptura()" class="btn btn-primary" type="submit">Realizar donación con los datos ingresados</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

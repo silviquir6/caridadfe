@@ -5,6 +5,7 @@ import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { Dashboard3Component } from './dashboard3/dashboard3.component';
 import { EsalDashboardComponent } from './esal-dashboard/esal-dashboard.component';
 import { EsalDetailsDashboardComponent } from './esal-details-dashboard/esal-details-dashboard.component';
+import { DonarDashboardComponent } from './donar-dashboard/donar-dashboard.component';
 
 export const DashboardRoutes: Routes = [
   {
@@ -55,13 +56,24 @@ export const DashboardRoutes: Routes = [
         }
       },
       {
-        path: 'esalDetailsDashboard',
+        path: 'esalDetailsDashboard/:id',
         component: EsalDetailsDashboardComponent,
         data: {
           title: 'ESAL Details Dashboard',
           urls: [
             { title: 'Dashboard', url: '/dashboard' },
             { title: 'ESAL Details Dashboard' }
+          ]
+        }
+      },
+      {
+        path: 'donarDashboard/:id',
+        component: DonarDashboardComponent,
+        data: {
+          title: 'Donar Dashboard',
+          urls: [
+            { title: 'Dashboard', url: '/dashboard' },
+            { title: 'Donar Dashboard' }
           ]
         }
       }

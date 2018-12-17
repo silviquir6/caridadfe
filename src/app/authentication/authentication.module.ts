@@ -11,6 +11,7 @@ import { Login2Component } from './login2/login2.component';
 import { SignupComponent } from './signup/signup.component';
 import { Signup2Component } from './signup2/signup2.component';
 
+//form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthenticationRoutes } from './authentication.routing';

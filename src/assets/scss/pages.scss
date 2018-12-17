@@ -1288,12 +1288,21 @@ Login register and recover password Page
   padding: 0px;
   margin-top: 0px;
   .login-box {
-    right: 0px;
-    position: absolute;
+   position: absolute;
+  left: auto;
     height: 100%;
   }
 }
 
+.login-sidebar-right {
+  padding: 0px;
+  margin-top: 0px;
+  .login-box {
+   position: absolute;
+  right: 0px;
+    height: 100%;
+  }
+}
 
 
 

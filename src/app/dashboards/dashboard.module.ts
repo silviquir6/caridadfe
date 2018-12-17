@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+//form
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { ChartsModule } from 'ng2-charts';
 import { Dashboard1Component } from './dashboard1/dashboard1.component';
@@ -33,6 +34,7 @@ import { WelcomeComponent } from './dashboard-components/welcome/welcome.compone
 import { EsalListComponent } from './dashboard-components/esal-list/esal-list.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { EsalDetailsDashboardComponent } from './esal-details-dashboard/esal-details-dashboard.component';
+import { DonarDashboardComponent } from './donar-dashboard/donar-dashboard.component';
 
 
 @NgModule({
@@ -43,7 +45,7 @@ import { EsalDetailsDashboardComponent } from './esal-details-dashboard/esal-det
     ChartsModule,
     ChartistModule,
     Ng2SmartTableModule,
-    RouterModule.forChild(DashboardRoutes), PipesModule
+    RouterModule.forChild(DashboardRoutes), PipesModule, ReactiveFormsModule
   ],
   declarations: [
     Dashboard1Component,
@@ -67,7 +69,8 @@ import { EsalDetailsDashboardComponent } from './esal-details-dashboard/esal-det
     EsalDashboardComponent,
     WelcomeComponent,
     EsalListComponent,
-    EsalDetailsDashboardComponent
+    EsalDetailsDashboardComponent,
+    DonarDashboardComponent
   ]
 })
 export class DashboardModule {}

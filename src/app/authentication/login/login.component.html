@@ -1,22 +1,23 @@
-<div class="login-register" style="background-image:url(assets/images/background/login-register.jpg);">
+<div class="login-register login-sidebar" style="background-image:url(assets/images/background/login-register.jpg);">
     <div class="login-box card">
+        <img class="" src="assets/images/caridadhumanalogo.png" alt="Card image cap">
         <div class="card-body">
             <form ngNativeValidate [formGroup]="forma" (ngSubmit)="ingresar()" class=" form-horizontal form-material" id="loginform">
                 <h3 class="box-title m-b-20 ">Iniciar Sesión</h3>
                 <div class="form-group ">
                     <div class="col-xs-12 ">
-                        <input formControlName="correo" name="correo" class="form-control" type="text " required=" " placeholder="Correo electrónico"> </div>
+                        <input formControlName="correo" name="correo" class="form-control" type="text" required="" placeholder="Correo electrónico"> </div>
                 </div>
                 <div class="form-group ">
                     <div class="col-xs-12 ">
-                        <input formControlName="password" name="password" class="form-control" type="password " required=" " placeholder="Contraseña"> </div>
+                        <input formControlName="password" name="password" class="form-control" type="password" required="" placeholder="Contraseña"> </div>
                 </div>
                 <div class="form-group row ">
                     <div class="col-md-12 font-14 ">
                         <div class="custom-control custom-checkbox ">
                             <input formControlName="recuerdame" name="recuerdame" type="checkbox" class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">Recordarme</label>
-                            <a href="javascript:void(0) " id="to-recover " class="text-dark float-right "><i class="fa fa-lock m-r-5"></i> Olvidaste la contraseña?</a>
+                            <a href="javascript:void(0) " id="to-recover " class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> Olvidaste la contraseña?</a>
                         </div>
                     </div>
                 </div>

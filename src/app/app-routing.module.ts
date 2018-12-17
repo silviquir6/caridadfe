@@ -21,34 +21,12 @@ export const Approutes: Routes = [
         loadChildren: './dashboards/dashboard.module#DashboardModule'
       },
       {
-        path: 'starter',
-        loadChildren: './starter/starter.module#StarterModule'
-      },
-      {
-        path: 'component',
-        loadChildren: './component/component.module#ComponentsModule'
-      },
-      { path: 'icons', loadChildren: './icons/icons.module#IconsModule' },
-      { path: 'forms', loadChildren: './form/forms.module#FormModule' },
-      { path: 'tables', loadChildren: './table/tables.module#TablesModule' },
-      { path: 'charts', loadChildren: './charts/charts.module#ChartModule' },
-      {
-        path: 'widgets',
-        loadChildren: './widgets/widgets.module#WidgetsModule'
-      },
-      {
-        path: 'extra-component',
-        loadChildren:
-          './extra-component/extra-component.module#ExtraComponentModule'
-      },
-      { path: 'apps', canActivate: [ AdminGuard], loadChildren: './apps/apps.module#AppsModule' },
-      {
-        path: 'sample-pages',
-        loadChildren: './sample-pages/sample-pages.module#SamplePagesModule'
-      },
-      {
         path: 'pagos',
         loadChildren: './pagos/pagos.module#PagosModule'
+      },
+      {
+        path: 'apps',
+        loadChildren: './apps/apps.module#AppsModule'
       }
     ]
   },

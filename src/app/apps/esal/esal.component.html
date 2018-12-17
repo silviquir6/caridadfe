@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-lg-12">
+
+
+
+        <div class="row animated fadeIn col-12 ">
+            <input #input type="text" placeholder="Buscar y enter" class="form-control">
+            <a href=""></a>
+        </div>
+
+
+        <div class="row animated fadeIn" *ngIf="cargando">
+
+            <div class="col-sm-12">
+                <div class="alert alert-warning text-center">
+                    <strong>Cargando</strong>
+                    <br>
+                    <i class="fa fa-refresh fa-spin fa-2x"></i>
+                    <br>
+                    <span>Espere por favor</span>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Colección: Esals</h4>
+                    <h6 class="card-subtitle"></h6>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>_id</th>
+                                    <th>nombre</th>
+                                    <th>telefono</th>
+                                    <th>municipio</th>
+                                    <th>departamento</th>
+                                    <th>pais</th>
+                                    <th>usuario</th>
+                                    <th>img</th>
+                                    <th>googlemaps</th>
+                                    <th>facebook</th>
+                                    <th>sitio Web</th>
+                                    <th>youtubeChannel</th>
+                                    <th>estado</th>
+                                    <th>descripcion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let esal of esals">
+                                    <td class="w70">{{esal._id}}</td>
+                                    <td class="w70">{{esal.nombre}}</td>
+                                    <td class="w70">{{esal.telefono}}</td>
+                                    <td class="w70">{{esal.municipio._id}}</td>
+                                    <td class="w70">{{esal.departamento._id}}</td>
+                                    <td class="w70">{{esal.pais}}</td>
+                                    <td class="w70">{{esal.usuario._id}}</td>
+                                    <td class="w70"><img [src]="esal.img" alt=""></td>
+                                    <td class="w70">{{esal.googlemaps}}</td>
+                                    <td class="w70">{{esal.facebook}}</td>
+                                    <td class="w70">{{esal.sitioWeb}}</td>
+                                    <td class="w70">{{esal.youtubeChannel}}</td>
+                                    <td class="w70">{{esal.estado}}</td>
+                                    <td class="w70">{{esal.descripcion}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><button class="page-link" href="#">Anterior </button></li>
+
+                                <li class="page-item"><button class="page-link" href="#">Siguiente</button></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -21,4 +21,14 @@ export class DepartamentoService {
     let url = URL_SERVICIOS + '/departamento';
     return this.http.get(url, {headers: headers});
   }
+
+  buscar(termino: string){
+
+    const headers = new HttpHeaders().set("token", this.usuarioService.token);
+
+
+    let url = URL_SERVICIOS + '/departamento/buscar/' + termino;
+    return this.http.get(url,  {headers: headers});
+
+  }
 }

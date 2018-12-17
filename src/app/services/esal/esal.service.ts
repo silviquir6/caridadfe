@@ -10,6 +10,7 @@ export class EsalService {
 
   constructor(public http: HttpClient, public usuarioService: UsuarioService) { }
 
+  
   obtenerEsals(desde: number = 0) {
 
     

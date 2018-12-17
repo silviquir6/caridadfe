@@ -10,7 +10,7 @@ export class MunicipioService {
 
   constructor(public http: HttpClient, public usuarioService: UsuarioService) { }
 
-  obtenerMunicipios(idDepartamento: string) {
+  obtenerMunicipiosPorDepartamento(idDepartamento: string) {
 
     
     const headers = new HttpHeaders().set("token", this.usuarioService.token);
@@ -19,7 +19,15 @@ export class MunicipioService {
     let url = URL_SERVICIOS + '/municipio/' + idDepartamento ;
     return this.http.get(url, {headers: headers});
   }
-  
+  obtenerMunicipios() {
+
+    
+    const headers = new HttpHeaders().set("token", this.usuarioService.token);
+
+
+    let url = URL_SERVICIOS + '/municipio' ;
+    return this.http.get(url, {headers: headers});
+  }
 
 
 }

@@ -6,6 +6,9 @@ import swal from 'sweetalert';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 import { URL_SERVICIOS } from '../../config/config';
 import { Usuario } from '../../models/usuario.model';
+import { URLSearchParams } from '@angular/http';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +25,21 @@ export class UsuarioService {
 
     this.cargarStorage();
   }
+
+  renuevaToken() {
+    const headers = new HttpHeaders().set("token", this.token);
+
+
+    let url = URL_SERVICIOS + '/renuevaToken';
+    return this.http.get(url, { headers })
+      .pipe(map((resp: any) => {
+        this.token = resp.token;
+        localStorage.setItem('token', this.token);
+
+        return true;
+      }));
+  }
+
 
   estaLogueado() {
     return (this.token.length > 5) ? true : false;
@@ -54,7 +72,7 @@ export class UsuarioService {
   logout() {
     this.usuario = null;
     this.token = '';
-    this.menu= [];
+    this.menu = [];
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
 
@@ -115,7 +133,7 @@ export class UsuarioService {
     let url = URL_SERVICIOS + '/usuario/' + usuario._id;
 
     console.log(url);
-    return this.http.put(url, usuario, {headers: headers})
+    return this.http.put(url, usuario, { headers: headers })
       .pipe(map((resp: any) => {
 
         if (usuario._id === this.usuario._id) {
@@ -157,7 +175,7 @@ export class UsuarioService {
 
 
     let url = URL_SERVICIOS + '/usuario?desde=' + desde;
-    return this.http.get(url, {headers});
+    return this.http.get(url, { headers });
   }
 
   buscarUsuario(termino: string) {
@@ -174,17 +192,18 @@ export class UsuarioService {
     return this.http.delete(url)
       .pipe(
         map(
-          (resp: any) =>
-{
+          (resp: any) => {
             swal("Usuario borrado", "El usuario ha sido eliminado correctamente", "success");
-    return true;
-  }
-   ) );
+            return true;
+          }
+        ));
 
 
 
 
   }
+
+
 
 
 

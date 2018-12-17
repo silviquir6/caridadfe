@@ -1,8 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
-
 .ps .ps__scrollbar-y-rail {
     left: 3px;
     right: auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.security-code {
+    -webkit-text-security: disc;
+}
+
+.img-50 {
+    width: 50px;
+}
+
+.w70 {
+    width: 70px;
 }

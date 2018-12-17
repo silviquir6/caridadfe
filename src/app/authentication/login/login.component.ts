@@ -84,11 +84,11 @@ this.loginGoogle(token);
 loginGoogle(token: any){
 
   this.usuarioService.loginGoogle(token)
-            .subscribe(correcto =>{
+            .subscribe(correcto => {
               console.log('login google correcto');
-             window.location.href = '/dashboard/dashboard1';
+ window.location.href = '/dashboard/esalDashboard';
            
-//this.router.navigate(['/dashboard/dashboard1']);
+//this.router.navigate(['/dashboard/esalDashboard']);
  
           });
 }
@@ -100,7 +100,7 @@ ingresar(){
     return;
   }
 
-  console.log(this.forma.value);
+  console.log('Forma .value:', this.forma.value);
 
 
   let usuario = new Usuario(
@@ -113,7 +113,7 @@ ingresar(){
   this.usuarioService.login(usuario, this.forma.value.recuerdame)
   .subscribe(correcto => {
 
-    window.location.href = '/dashboard/dashboard1';
+    window.location.href = 'dashboard/esalDashboard';
     //this.router.navigate(['/dashboard/dashboard1']);
 
 

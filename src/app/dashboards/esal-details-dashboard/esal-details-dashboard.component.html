@@ -1,3 +1,49 @@
-<p>
-  esal-details-dashboard works!
-</p>
+<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group" role="group" aria-label="First group">
+
+    </div>
+    <div class="input-group">
+
+        <button class="btn btn-primary btn-lg active float-right" [routerLink]="['/dashboard/donarDashboard/', esal._id]" routerLinkActive="router-link-active" routerLinkActive="router-link-active">
+                      DONAR AHORA
+        </button>
+
+
+    </div>
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-12 m-t-30">
+        <h4 class="m-b-0">{{esal.nombre}}</h4>
+        <p class="text-muted m-t-0 font-12">{{esal.direccion}} </p>
+    </div>
+    <div class="col-md-6">
+
+        <div class="card">
+            <img class="card-img-top" [src]="esal.img | imagen:'esal' " alt="Card image cap">
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="map-box">
+            <iframe class="iframeSize" [src]="esal.googlemaps | safe" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"></h3>
+                <ngb-tabset>
+                    <ngb-tab title="Descripción">
+                        <ng-template ngbTabContent>
+                            <p class="p-t-20">{{esal.descripcion}}</p>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </div>
+        </div>
+    </div>
+</div>

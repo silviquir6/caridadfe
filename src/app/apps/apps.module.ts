@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { CalendarModule, CalendarDateFormatter } from 'angular-calendar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,17 +10,27 @@ import { AppsRoutes } from './apps.routing';
 import { EmailComponent } from './email/email.component';
 import { TaskboardComponent } from './taskboard/taskboard.component';
 import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { DepartamentoComponent } from './departamento/departamento.component';
+import { TipoEsalComponent } from './tipo-esal/tipo-esal.component';
+import { MunicipioComponent } from './municipio/municipio.component';
+import { DonacionComponent } from './donacion/donacion.component';
+//form
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EsalComponent } from './esal/esal.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    FormsModule, ReactiveFormsModule,
     NgbModule.forRoot(),
     CalendarModule.forRoot(),
     QuillModule,
     DragulaModule,
-    RouterModule.forChild(AppsRoutes)
+    RouterModule.forChild(AppsRoutes), PipesModule
   ],
-  declarations: [EmailComponent, TaskboardComponent, FullcalendarComponent]
+  declarations: [EmailComponent, TaskboardComponent, FullcalendarComponent, UsuarioComponent, DepartamentoComponent, TipoEsalComponent, MunicipioComponent, DonacionComponent, EsalComponent]
 })
 export class AppsModule {}
